@@ -25,7 +25,7 @@ function draw() {
       break ;
 
       case 3:
-     text("three are touching the screen", 5, 22) ;
+     text("three are touching the screens", 5, 22) ;
             // put a picture here
       break ;
 
