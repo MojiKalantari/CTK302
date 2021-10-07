@@ -15,3 +15,4 @@ image (burger, width/2, height/2, 100, 100) ;
 image (fish, width/2, height/2-120, 100, 100) ;
 image (veggie, width/2, height/2+120, 100, 100) ;
 }
+        

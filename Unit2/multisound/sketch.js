@@ -1,16 +1,16 @@
-let state = 0 ;
-let song1, song2, song3 ;
+let state = 0;
+let song1, song2, song3;
 
 function preload() {
-  song1 = loadSound("assetss/donkey.mp3") ;
-  song2 = loadSound("assetss/skate.mp3") ;
-  song3 = loadSound("assetss/thrill.mp3") ;
-  song1.loop() ;
-  song2.loop() ;
-  song3.loop() ;
-  song1.pause() ;
-  song2.pause() ;
-  song3.pause() ;
+  song1 = loadSound("assetss/first.wav");
+  song2 = loadSound("assetss/second.wav");
+  song3 = loadSound("assetss/third.mp3");
+  song1.loop();
+  song2.loop();
+  song3.loop();
+  song1.pause();
+  song2.pause();
+  song3.pause();
 }
 
 function setup() {
@@ -18,44 +18,44 @@ function setup() {
 }
 
 function draw() {
-  switch (state){
+  switch (state) {
     case 0: //spawn song 1
-      background('gray') ;
+      background('gray');
       song1.play();
-    state = 1 ;
-    break ;
+      state = 1;
+      break;
 
     case 1: // listen to song 1
-      background('red') ;
-    break ;
+      background('red');
+      break;
 
     case 2: // spawn song 2
-    song2.play() ;
-    state = 3 ;
-    break ;
+      song2.play();
+      state = 3;
+      break;
 
     case 3:
-        background('orange') ;
-    break ;
+      background('orange');
+      break;
 
     case 4: // spawn song 3
-    song3.play() ;
-    state = 5 ;
-    break ;
+      song3.play();
+      state = 5;
+      break;
 
     case 5: // listen to song 3
-      background('gray') ;
-    break ;
+      background('gray');
+      break;
 
   }
-  function mouseReleased () {
-        song1.pause() ;
-    song2.pause() ;
-    song3.pause() ;
-  state++ ;
-    if (state > 5) {
-      state = 0 ;
-    }
-  }
+}
 
+function mouseReleased() {
+  song1.pause();
+  song2.pause();
+  song3.pause();
+  state++;
+  if (state > 5) {
+    state = 0;
+  }
 }

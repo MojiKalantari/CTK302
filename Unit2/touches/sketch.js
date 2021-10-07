@@ -11,6 +11,7 @@ function draw() {
 
   switch(numberOfTouches) {
     case 0:
+    // image() mitoni image add koni
       text("no one is touching the screen", 5, 22) ;
       break ;
 
