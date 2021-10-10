@@ -1,16 +1,24 @@
 
+let x = 0 ;
 
 function setup(){
   createCanvas(600,400) ;
-
 }
 function draw() {
  background("lightblue");
-
       fill("green") ;
  rect(0, 350, 600, 50);
+ push () ;
+ translate(x, 0) ;
+ avatar() ;
+pop() ;
+ x = x + 3 ;
+ if (x> width) {
+   x = -300 ;
+ }
 
-
+}
+function avatar() {
  // back
 
     fill("#603808");
@@ -32,11 +40,11 @@ function draw() {
  //tail
  if (mouseIsPressed) {
   fill("#603808");
-   ellipse(55, 370, 20, 10) ;
+  // ellipse(55, 370, 20, 10) ;
  triangle(50, 370, 150, 350, 200, 370);
  }else{
    fill("#603808");
-   ellipse(64, 300, 20, 20) ;
+  // ellipse(64, 300, 20, 20) ;
  triangle(55, 295, 150, 370, 200, 370);
  }
 
@@ -77,35 +85,36 @@ arc(202, 310, 50, 50, PI, TWO_PI);
  triangle(200, 245, 220, 230, 220, 260);
   triangle(200, 245, 180, 230, 180, 260);
   //bone
- if (mouseIsPressed) {
-   fill("#f4f3ee") ;
-  ellipse(290, 370, 20, 20) ;
-  ellipse(370, 370, 20, 20) ;
-  rect(295, 372, 70, 15);
-  ellipse(290, 386, 20, 20) ;
-  ellipse(370, 386, 20, 20) ;
- }else{
-        fill("#f4f3ee") ;
-  ellipse(160, 220, 20, 20) ;
- ellipse(240, 220, 20, 20) ;
-  rect(165, 222, 70, 15);
-  ellipse(160, 238, 20, 20) ;
- ellipse(240, 238, 20, 20) ;
- }
+// if (mouseIsPressed) {
+   //fill("#f4f3ee") ;
+  //ellipse(290, 370, 20, 20) ;
+  //ellipse(370, 370, 20, 20) ;
+  //rect(295, 372, 70, 15);
+  //ellipse(290, 386, 20, 20) ;
+  //ellipse(370, 386, 20, 20) ;
+// }else{
+      //  fill("#f4f3ee") ;
+//  ellipse(160, 220, 20, 20) ;
+ //ellipse(240, 220, 20, 20) ;
+  //rect(165, 222, 70, 15);
+//  ellipse(160, 238, 20, 20) ;
+// ellipse(240, 238, 20, 20) ;
+// }
 
   //noise eyes shadow
    fill("#7f5539");
+    arc(200, 225, 55, 30, 0,PI, TWO_PI);
  arc(200, 215, 55, 50, PI, TWO_PI);
  arc(187, 215, 30, 25, 0,PI, TWO_PI);
  arc(213, 215, 30, 25, 0,PI, TWO_PI);
   ellipse(180, 187, 30, 30) ;
    ellipse(220, 187, 30, 30) ;
- if (mouseIsPressed) {
-   arc(200, 235 , 45, 20, PI, 0); // frown
+// if (mouseIsPressed) {
+  // arc(200, 235 , 45, 20, PI, 0); // frown
 
- }else {
- arc(200, 234, 55, 30, 0,PI, TWO_PI);
- }
+// }else {
+
+// }
  // noise eyes
  if (mouseIsPressed) {
    fill("black") ;
@@ -153,7 +162,7 @@ ellipse(220, 187, 9, 11) ;
    ellipse(169, 98, 8, 5);
 
  }
+noStroke();
 
 
-   noStroke();
 }

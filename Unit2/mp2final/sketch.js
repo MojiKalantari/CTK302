@@ -1,5 +1,5 @@
 let timer = 0;
-let mytimer = 0 ;
+let mytimer = 0;
 let bod, jung, wub, wuf, wdf, wdb, gun, trig, bumb;
 let state = 0;
 let mystate = 0;
@@ -9,8 +9,9 @@ var mic;
 var vol;
 var squak, song1;
 let z = 300;
-let w =250;
-let c ;
+let w = 250;
+let c;
+
 function preload() {
 
   wuf = loadImage("imagesmp/wingupfront.png");
@@ -19,10 +20,10 @@ function preload() {
   wdb = loadImage("imagesmp/wingdownback.png");
   jung = loadImage("imagesmp/jungle.png");
   bod = loadImage("imagesmp/body.png");
-    kan = loadImage("imagesmp/kangoro.png");
-    cor = loadImage("imagesmp/corocodile.png");
+  kan = loadImage("imagesmp/kangoro.png");
+  cor = loadImage("imagesmp/corocodile.png");
   squak = loadSound('assetsounds/squawking.ogg');
-song1 = loadSound('assetsounds/bird.m4a');
+  song1 = loadSound('assetsounds/bird.m4a');
 
 
 
@@ -31,81 +32,82 @@ song1 = loadSound('assetsounds/bird.m4a');
 
 function setup() {
   createCanvas(600, 400);
-c = 80 ;
+  c = 80;
   mic = new p5.AudioIn(); // what does "new" mean?
   mic.start();
+  song1.play();
 }
 
 function draw() {
   background("lightblue");
   image(jung, 1, 1, 600, 400);
 
-switch (mystate) {
-  case 0 :
-//song1.play();
+  switch (mystate) {
+    case 0:
 
-  fill("brown");
-  rect(300,40,100,45);
-  fill("white");
-   textSize(15);
-  text("Click to Start", 305, 67);
-  break ;
+
+      fill("brown");
+      rect(300, 40, 100, 45);
+      fill("white");
+      textSize(15);
+      text("Click to Start", 305, 67);
+      break;
 
     case 1:
 
 
-        mystate = 2;
+      mystate = 2;
+      break;
 
 
-
-  case 2:
-  vol = (mic.getLevel().toFixed(2)); // returned level is between 0 and 1
-  if (vol > .20) { // if the volume is LOUD?
-    // do something
-            mystate = 3;
+    case 2:
+      vol = (mic.getLevel().toFixed(2)); // returned level is between 0 and 1
+      if (vol > .20) { // if the volume is LOUD?
+        // do something
+        mystate = 3;
         squak.play();
-      //  song1.pause();
-}
-image(kan, 300, 250);
-     textSize(30);
-     fill("brown");
-     text("Say           to save her life", 200, 70);
+
+      }
+      image(kan, 300, 250);
+      textSize(30);
+      fill("brown");
+      text("Say             to save her life", 200, 70);
       textSize(35);
       fill("black");
- text("RUN!", 263, 70);
-     break;
+      text("RUN", 260, 70);
+      break;
 
-     case 3:
+    case 3:
 
-        image(kan, z, w);
-                z = z + 10;
-                w = w -10;
-        if ((z >= 600) && (w <= 230)) {
-          mystate = 4;
-          squak.stop();
-          }
+      image(kan, z, w);
+      z = z + 10;
+      w = w - 10;
+      if ((z >= 600) && (w <= 230)) {
+        mystate = 4;
+        squak.stop();
+      }
 
-        break;
-        case 4:
-             textSize(30);
-             fill("brown");
-             text("You saved her life.\n     Thank You!", 230, 80);
-            z = 300
-              break;
+      break;
+    case 4:
+      textSize(30);
+      fill("brown");
+      text("You saved her life.\n     Thank You!", 230, 80);
+      z = 300
+      break;
 
-}
+  }
   push();
   translate(x, y);
   avatar();
   pop();
   x = x + 2;
 
-  if (x > width)  {
+  if (x > width) {
     x = -50;
 
   }
-     image(cor, c , 330,160,40);
-     c = c+ .03 ;
+  image(cor, c, 330, 160, 40);
+  c = c + .03;
 }
 
 function avatar() {
@@ -136,9 +138,11 @@ function avatar() {
     }
   }
 }
+
 function touchStarted() {
   getAudioContext().resume();
 }
+
 function mouseReleased() {
 
 

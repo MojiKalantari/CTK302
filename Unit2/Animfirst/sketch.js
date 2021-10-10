@@ -4,7 +4,8 @@ function setup() {
 }
 
 function draw() {
-  background("gray");
+  background("#a8dadc");
+fill(random(100,255));
   rect(x,100,100,100);
   x= x + 3 ;
   if (x > width) {
