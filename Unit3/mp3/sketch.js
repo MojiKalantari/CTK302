@@ -228,6 +228,6 @@ function game() {
 
 }
 
-//function touchStarted() {
-//  getAudioContext.resume().resume();
-//}
+function touchStarted() {
+ getAudioContext.resume().resume();
+}
