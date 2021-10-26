@@ -5,7 +5,7 @@ function preload() {
 
   ski = loadImage("aset/skiingTehran.jpg");
   desert = loadImage("aset/desertyazd.jpg");
-  chalus = loadImage("aset/chalusautumn.jpg");
+  chalus = loadImage("aset/chalusAutumn.jpg");
   kish = loadImage("aset/kishisland.jpg");
 }
 
