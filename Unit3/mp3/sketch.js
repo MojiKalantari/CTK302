@@ -229,5 +229,6 @@ function game() {
 }
 
 function touchStarted() {
- getAudioContext.resume().resume();
+  getAudioContext().resume();
+
 }
