@@ -1,6 +1,6 @@
 var cars = [];
 var frogPos;
-var myState = -1;
+var myState = -2;
 var timer = 0;
 var robotc, robotl, robotr;
 var bag;
@@ -54,6 +54,13 @@ function setup() {
 function draw() {
 
   switch (myState) {
+    case -2:
+    background("black");
+    fill("white");
+    text("welcome to my game", 100,200);
+    myState = -1 ;
+    break;
+
     case -1:
       robotsound1.play();
       myState = 0;
@@ -116,6 +123,10 @@ function draw() {
 
 function mouseReleased() {
   switch (myState) {
+    case -1:
+    myState = 0;
+    break;
+
     case 0:
       robotsound1.stop();
       myState = 1;
