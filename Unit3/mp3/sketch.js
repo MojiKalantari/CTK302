@@ -6,7 +6,7 @@ var robotc, robotl, robotr;
 var bag;
 var bags = [];
 var bea, wel, wo;
-var los;
+var los, firstpage;
 var ssng, song, font;
 var Robotsound1, robotwin, robotlos;
 let x = 0;
@@ -29,6 +29,7 @@ function setup() {
   robotc = robotl;
 
   bag = loadImage("asset2/bagleft.png");
+    firstpage = loadImage("asset2/first.png");
 
   bea = loadImage('asset2/beachfinal.png');
   los = loadImage("asset2/coverlos.png");
@@ -55,10 +56,8 @@ function draw() {
 
   switch (myState) {
     case -2:
-    background("black");
-    fill("white");
-    text("welcome to my game", 100,200);
-    myState = -1 ;
+  image(firstpage, width / 2, height - 300, 600, 600);
+
     break;
 
     case -1:
@@ -68,7 +67,7 @@ function draw() {
 
     case 0:
 
-      background('#ffcb08');
+      //background('#ffcb08');
       fill(random(20, 230));
       textFont(font); // SETS the font
       textSize(40);
@@ -123,8 +122,8 @@ function draw() {
 
 function mouseReleased() {
   switch (myState) {
-    case -1:
-    myState = 0;
+    case -2:
+    myState = -1;
     break;
 
     case 0:
