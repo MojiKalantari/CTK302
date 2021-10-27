@@ -232,7 +232,7 @@ function game() {
   }
 
   // draw the eagle
-  fill('green');
+//  fill('green');
   image(robotc, frogPos.x, frogPos.y, 200, 300);
   checkForKeys();
 
