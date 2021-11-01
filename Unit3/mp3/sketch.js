@@ -30,8 +30,7 @@ function setup() {
 
   bag = loadImage("asset2/bagleft.png");
     firstpage = loadImage("asset2/first.png");
-
-  bea = loadImage('asset2/beachfinal.png');
+  bea = loadImage('asset2/environment.png');
   los = loadImage("asset2/coverlos.png");
   wel = loadImage("asset2/welcome.png");
   wo = loadImage("asset2/win.png");
@@ -44,7 +43,6 @@ function setup() {
     cars.push(new Car());
 
   }
-
 
   //initial frog position
   frogPos = createVector(width / 2, height - 80);
@@ -74,7 +72,7 @@ function draw() {
 
       image(wel, width / 2, height / 2);
       text("Click to Play", x, 150);
-      x += 5;
+      x += 3;
       if (x > 800) {
         x = 0;
       }
@@ -172,7 +170,6 @@ function Car() {
   this.display = function() {
     fill(this.r, this.g, this.b);
     image(bags[this.birdNum], this.pos.x, this.pos.y, 100, 100);
-
     this.timer = this.timer + 1;
     if (this.timer > this.maxTimer) {
       this.birdNum = this.birdNum + 1;
