@@ -1,4 +1,7 @@
 var cars = [];
+//let botteles = [];
+//let botel;
+
 var frogPos;
 var myState = -2;
 var timer = 0;
@@ -27,7 +30,7 @@ function setup() {
   robotr = loadImage("asset2/robot2.png");
   robotl = loadImage("asset2/robot1.png");
   robotc = robotl;
-
+//  botel = loadImage('asset2/bottel.png');
   bag = loadImage("asset2/bagleft.png");
     firstpage = loadImage("asset2/first.png");
   bea = loadImage('asset2/environment.png');
@@ -36,7 +39,9 @@ function setup() {
   wo = loadImage("asset2/win.png");
   font = loadFont("asset2/fontrobot.ttf");
 
-
+//  for (let j = 0; j < 5; j++) {
+  //  botteles.push(new botel());
+//  }
 
   //spawn the cars
   for (var i = 0; i < 5; i++) {
@@ -146,13 +151,18 @@ function mouseReleased() {
 
 function resetTheGame() {
   car = []; //clear the array
+//  botteles = [];
   for (var i = 0; i < 5; i++) {
     cars.push(new Car());
   }
+  //for (let j = 0; j < 5; j++) {
+  //  botteles.push(new botel());
+
   robotwin.stop();
   robotsound1.play();
   timer = 0;
 }
+
 
 // car class!!
 function Car() {
@@ -191,6 +201,43 @@ function Car() {
 
 }
 
+function botel() {
+  // attributes
+//  this.pos = createVector(100, 100);
+//  this.vel = createVector(random(-5, 5), random(-5, 5));
+  //this.r = random(255);
+//  this.g = random(255);
+//  this.b = random(255);
+//  this.birdNum = floor(random(botel.length - 1));
+//  this.timer = 0;
+  //this.maxTimer = random(10, 60);
+
+  // methods
+//  this.display = function() {
+  //  fill(this.r, this.g, this.b);
+  //  image(botel[this.birdNum], this.pos.x, this.pos.y, 30, 30);
+  //  this.timer = this.timer + 1;
+  //  if (this.timer > this.maxTimer) {
+    //  this.birdNum = this.birdNum + 1;
+    //  if (this.birdNum > botel.length - 1) this.birdNum = 0;
+    //  this.timer = 0;
+  //  }
+
+//  }
+
+  this.drive = function() {
+    this.pos.add(this.vel);
+
+    if (this.pos.x > width) this.pos.x = 0;
+    if (this.pos.x < 0) this.pos.x = width;
+    if (this.pos.y > height) this.pos.y = 0;
+    if (this.pos.y < 0) this.pos.y = height;
+
+  }
+
+}
+
+
 function keyPressed() {
   if (keyCode === LEFT_ARROW) robotc = robotl;
   if (keyCode === RIGHT_ARROW) robotc = robotr;
@@ -201,8 +248,9 @@ function checkForKeys() {
   if (keyIsDown(RIGHT_ARROW)) frogPos.x = frogPos.x + 5;
   if (keyIsDown(UP_ARROW)) frogPos.y = frogPos.y - 5;
   if (keyIsDown(DOWN_ARROW)) frogPos.y = frogPos.y + 5;
-
 }
+
+
 
 function game() {
   background(100);
@@ -220,16 +268,23 @@ function game() {
 
     }
   }
+  //for (let j = 0; j < botteles.length; j++) {
+  //  botteles[j].display();
+  //  botteles[j].move();
 
-  if (cars.length == 0) {
+  //  if (botteles[j].pos.dist(frogpos) < 50) {
+    //  botteles.splice(j, 1);
+      //  ssng.play();
+        //  }
+//  }
+
+  if (cars.length == 0) {// && botteles.length == 0) {
     ssng.stop();
     robotwin.play();
     timer = 0
     myState = 3; // they won
   }
 
-  // draw the eagle
-//  fill('green');
   image(robotc, frogPos.x, frogPos.y, 200, 300);
   checkForKeys();
 
