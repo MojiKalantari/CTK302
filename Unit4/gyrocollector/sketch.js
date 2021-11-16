@@ -4,13 +4,18 @@ var beta, gamma; // orientation data
 var x = 0; // acceleration data
 var y = 0;
 var z = 0;
+var x1 = 0; // acceleration data
+var y1 = 0;
+var z1 = 0;
 var xPosition = 0;
 var yPosition = 0;
+let botteles = [];
 let botel, b;
 var bea;
 var robotc, robotl, robotr;
-//var bags = [];
-//var bag;
+var bags = [];
+var bag;
+var Botel;
 
 // var bunnyImage;
 var cars = [];
@@ -21,13 +26,13 @@ function setup() {
 
   createCanvas(600, 600);
     bea = loadImage('asset2/environment.png');
-//  bags[0] = loadImage("asset2/bagleft.png");
-//  bags[1] = loadImage("asset2/bagright.png");
-  robotr = loadImage("asset2/robot2.png");
-  robotl = loadImage("asset2/robot1.png");
-  robotc = robotl;
+ bags[0] = loadImage("asset2/bagleft.png");
+ bags[1] = loadImage("asset2/bagright.png");
+//  robotr = loadImage("asset2/robot2.png");
+   bag = loadImage("asset2/bagleft.png");
+//  robotc = robotl;
   botel = loadImage('asset2/b.png');
-//  bag = loadImage("asset2/bagleft.png");
+
 
   // initialize accelerometer variables
   alpha = 0;
@@ -40,11 +45,17 @@ function setup() {
     cars.push(new Car());
   }
 
+   for (let j = 0; j < 40; j++) {
+     botteles.push(new Botel());
+   }
+
+
   // initialize the frog's position
   frogPos = createVector(width / 2, height - 80);
 
   // load any images you need
   //bunnyImage = loadImage("assets/bunny.jpg");
+    robotl = loadImage("asset2/robot1.png");
   imageMode(CENTER);
   rectMode(CENTER);
   noStroke();
@@ -67,7 +78,7 @@ function draw() {
   //  rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
   // draw the FROG
-    image(robotc, frogPos.x, frogPos.y, 150, 200);
+    image(robotl, 0, 0, 150, 200);
   //fill('green');
 //  ellipse(0, 0, 80, 80);
   pop();
@@ -85,19 +96,27 @@ function draw() {
       cars.splice(i, 1);
     }
   }
+  for (let j = 0; j < botteles.length; j++) {
+   botteles[j].display();
+   botteles[j].drive();
+
+   if (botteles[j].pos.dist(frogPos) < 50) {
+     botteles.splice(j, 1);
+               }
+ }
 
   // MORE DECORATIONS - write that pretty ATK type on top.
   fill('white');
   textSize(40);
   textAlign(CENTER);
-  text("help me to save the environment!", width / 2, 600, windowWidth - 200, windowHeight - 200);
+  text("Help me to save the environment!", width / 2, 600, windowWidth - 200, windowHeight - 200);
 
 
   // Debugging information -- take this out when you're ready for production!
   // Just a bunch of text commands to display data coming in from addEventListeners
   textAlign(LEFT);
   textSize(20);
-  fill('black');
+  fill('white');
   text("orientation data:", 25, 25);
   textSize(15);
   text("alpha: " + alpha, 25, 50);
@@ -118,6 +137,13 @@ function deviceShaken() {
   cars = []; // clear the array first
   for (var i = 0; i < 40; i++) {
     cars.push(new Car());
+  }
+}
+function deviceShaken() {
+  // re-spawn cars
+  botteles = []; // clear the array first
+  for (var j = 0; j < 40; j++) {
+       botteles.push(new Botel());
   }
 }
 
@@ -160,8 +186,9 @@ function Car() {
 
     // maybe use an image here instead!
 
-     image(botel, this.pos.x, this.pos.y, 40, 50);
-      // image(bags, this.pos.x, this.pos.y, 60, 60);
+    // image(botel, this.pos.x, this.pos.y, 40, 50);
+      image(bag, this.pos.x, this.pos.y, 60, 60);
+
 
   }
 
@@ -172,6 +199,38 @@ function Car() {
     if (this.pos.x < 0) this.pos.x = width;
     if (this.pos.y > height) this.pos.y = 0;
     if (this.pos.y < 0) this.pos.y = height;
+
+  }
+
+}
+function Botel() {
+  // attributes
+  this.pos = createVector(50, 50);
+  this.vel = createVector(random(-5, 5), random(-5, 5));
+  this.r = random(255);
+  this.g = random(255);
+  this.b = random(255);
+  this.a = random(255);  // alpha opacity value for fill!
+
+
+  // methods
+  this.display = function() {
+
+    // maybe use an image here instead!
+
+     image(botel, this.pos.x, this.pos.y, 40, 50);
+    //  image(bag, this.pos.x, this.pos.y, 60, 60);
+
+
+  }
+
+  this.drive = function() {
+    this.pos.add(this.vel);
+
+    if (this.pos.x1 > 500) this.pos.x1 = 0;
+    if (this.pos.x1 < 100) this.pos.x1 = 500;
+    if (this.pos.y1 > 500) this.pos.y1 = 0;
+    if (this.pos.y1 < 100) this.pos.y1 = 500;
 
   }
 
