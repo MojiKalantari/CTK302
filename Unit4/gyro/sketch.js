@@ -44,7 +44,7 @@ function draw() {
   // Text commands that display debugging data
   textAlign(LEFT);
   textSize(20);
-  fill('black');
+  fill('blue');
   text("orientation data:", 25, 25);
   textSize(15);
   text("alpha: " + alpha, 25, 50);
@@ -59,9 +59,9 @@ function draw() {
 
   // Text that makes CTK type in the background
   fill('black');
-  noStroke();
-  textSize(20);
-  //textAlign(CENTER);
+//  noStroke();
+  textSize(100);
+  textAlign(CENTER);
   text("LEO", width / 2, height-20 );
 
 }

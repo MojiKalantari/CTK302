@@ -39,7 +39,7 @@ function gotData(data) {
 
 function draw() {
   background('brown');
-image(b, width / 2, height - 300, 400, 400);
+image(b, 80, 100, 400, 400);
   // // iterate through the bubbles and display the objects!
   for (let i = 0; i < bubbles.length; i++) {
     bubbles[i].display();
