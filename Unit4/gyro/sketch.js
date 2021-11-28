@@ -11,7 +11,7 @@ let x = 0, y = 0, z = 0 ; // accelerometer data
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
-
+f1 = loadFont("assetg/cute.otf") ;
 
 
   bunnyImage = loadImage("assetg/leo.png");
@@ -46,6 +46,8 @@ function draw() {
   textSize(20);
   fill('blue');
   text("orientation data:", 25, 25);
+  textFont(f1) ;
+  text("My name is Leo", 680, 125);
   textSize(15);
   text("alpha: " + alpha, 25, 50);
   text("beta: " + beta, 25, 70);
@@ -62,7 +64,7 @@ function draw() {
 //  noStroke();
   textSize(100);
   textAlign(CENTER);
-  text("LEO", width / 2, height-20 );
+  //text("LEO", width / 2, height-20 );
 
 }
 

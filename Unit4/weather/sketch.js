@@ -8,9 +8,11 @@ var y = 0;
 var windspeed = 0 ;
 var tempt = 0;
 var humid = 0;
+let weth;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(410, 400);
+    weth = loadImage("asset6/weather.png");
 
   // HERE is the call to get the weather.
 
@@ -40,6 +42,7 @@ humid = weather.main.humidity ;
 
 
 function draw() {
+
   switch (myState) {
     case 0:
       if (weather) {
@@ -49,12 +52,13 @@ function draw() {
 
     case 1:
       background('lightblue');
-      //image
-      fill('black');
-      text("What is the weather in " + weather.name + "?", 20, 20);
-      text("windspeed is " + windspeed, 20, 40);
- text("temperature is " + tempt, 20, 60);
-       text("humidity is " + humid, 20, 80);
+    image(weth,0,200,400,170);
+      fill('yellow');
+      textSize(15);
+      text("What is the weather in " + weather.name + "?", 20, 30);
+      text("windspeed\n\n\n      " + windspeed, 300, 230);
+ text("temperature\n\n\n       " + tempt, 170, 240);
+       text("humidity\n\n\n      " + humid, 50, 240);
 
       // cloud
       fill('white');
@@ -71,4 +75,5 @@ function draw() {
       break;
 
   }
+
 }

@@ -3,10 +3,10 @@ let desert, ski, kish, chalus;
 
 function preload() {
 
-  ski = loadImage("aset/skiingTehran.jpg");
-  desert = loadImage("aset/desertyazd.jpg");
-  chalus = loadImage("aset/chalusautumn.jpg");
-  kish = loadImage("aset/kishisland.jpg");
+  ski = loadImage("aset/skiing.jpg");
+  desert = loadImage("aset/desert.jpg");
+  chalus = loadImage("aset/Autumn.jpg");
+  kish = loadImage("aset/Island.jpg");
 }
 
 function setup() {
