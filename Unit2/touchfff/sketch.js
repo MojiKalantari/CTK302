@@ -5,7 +5,7 @@ function setup() {
   createCanvas(700, 600);
   img1 = loadImage("aset/chalusAutumn.jpg");
   img2 = loadImage("aset/desertyazd.jpg");
-  img3 = loadImage("aset/kishisland.jpg");
+  img3 = loadImage("aset/kishIsland.jpg");
   img4 = loadImage("aset/skiingTehran.jpg");
 
   imageMode(CENTER);
