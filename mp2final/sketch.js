@@ -1,6 +1,6 @@
 let timer = 0;
 let mytimer = 0;
-let bod, jung, wub, wuf, wdf, wdb, gun, trig, bumb;
+let bod, jung, wub, wuf, wdf, wdb, cor, cor1, kan;
 let state = 0;
 let mystate = 0;
 let x = 0;
