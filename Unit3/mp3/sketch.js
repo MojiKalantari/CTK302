@@ -27,13 +27,13 @@ function setup() {
 
   bags[0] = loadImage("asset2/bagleft.png");
   bags[1] = loadImage("asset2/bagright.png");
-  robotr = loadImage("asset2/robot2.png");
-  robotl = loadImage("asset2/robot1.png");
+  robotr = loadImage("asset2/robotright.png");
+  robotl = loadImage("asset2/robotleft.png");
   robotc = robotl;
   botel = loadImage('asset2/b.png');
   bag = loadImage("asset2/bagleft.png");
     firstpage = loadImage("asset2/first.png");
-  bea = loadImage('asset2/environment.png');
+  bea = loadImage('asset2/world.png');
   los = loadImage("asset2/coverlos.png");
   wel = loadImage("asset2/welcome.png");
   wo = loadImage("asset2/win.png");
@@ -208,20 +208,13 @@ this.pos = createVector(100, 100);
   this.r = random(255);
  this.g = random(255);
  this.b = random(255);
- // this.birdNum = floor(random(botel.length - 1));
- // this.timer = 0;
- //  this.maxTimer = random(10, 60);
+
 
   //methods
  this.display = function() {
    fill(this.r, this.g, this.b);
    image(botel, this.pos.x, this.pos.y, 40, 50);
-   // this.timer = this.timer + 1;
-   // if (this.timer > this.maxTimer) {
-   //   this.birdNum = this.birdNum + 1;
-   //   if (this.birdNum > botel.length - 1) this.birdNum = 0;
-   //   this.timer = 0;
-   // }
+
 
  }
 
@@ -253,8 +246,8 @@ function checkForKeys() {
 
 
 function game() {
-  background(100);
-  image(bea, width / 2, height - 300, 600, 600);
+  background("#1b85c2");
+  image(bea, width / 2, height - 300, 700, 500);
 
   //iterate
   for (var i = 0; i < cars.length; i++) {

@@ -11,7 +11,7 @@ var squak, song1;
 let z = 300;
 let w = 250;
 let c;
-
+//let f2;
 function preload() {
 
   wuf = loadImage("imagesmp/wingupfront.png");
@@ -21,13 +21,9 @@ function preload() {
   jung = loadImage("imagesmp/jungle.png");
   bod = loadImage("imagesmp/body.png");
   kan = loadImage("imagesmp/kangoro.png");
-  cor = loadImage("imagesmp/corocodile.png");
+  cor = loadImage("imagesmp/corocodile1.png");
   squak = loadSound('assetsounds/squawking.ogg');
   song1 = loadSound('assetsounds/bird.m4a');
-
-
-
-
 }
 
 function setup() {
@@ -36,6 +32,7 @@ function setup() {
   mic = new p5.AudioIn(); // what does "new" mean?
   mic.start();
   song1.play();
+  //f2 = loadFont("imagesmp/cute.otf") ;
 }
 
 function draw() {
@@ -44,8 +41,6 @@ function draw() {
 
   switch (mystate) {
     case 0:
-
-
       fill("brown");
       rect(300, 40, 100, 45);
       fill("white");
@@ -54,11 +49,8 @@ function draw() {
       break;
 
     case 1:
-
-
       mystate = 2;
       break;
-
 
     case 2:
       vol = (mic.getLevel().toFixed(2)); // returned level is between 0 and 1
@@ -71,10 +63,9 @@ function draw() {
       image(kan, 300, 250);
       textSize(30);
       fill("brown");
-      text("Say             to save her life", 200, 70);
-      textSize(35);
-      fill("black");
-      text("RUN", 260, 70);
+      //textFont(f2) ;
+      text("please yell out to save the kangaroo's life", 200, 70);
+
       break;
 
     case 3:
@@ -108,6 +99,8 @@ function draw() {
   }
   image(cor, c, 330, 160, 40);
   c = c + .03;
+
+
 }
 
 function avatar() {
