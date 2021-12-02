@@ -1,6 +1,6 @@
 let timer = 0;
 let mytimer = 0;
-let bod, jung, wub, wuf, wdf, wdb, gun, trig, bumb;
+let bod, jung, wub, wuf, wdf, wdb, cor, cor1, kan;
 let state = 0;
 let mystate = 0;
 let x = 0;
@@ -11,7 +11,7 @@ var squak, song1;
 let z = 300;
 let w = 250;
 let c;
-//let f2;
+let font;
 function preload() {
 
   wuf = loadImage("imagesmp/wingupfront.png");
@@ -22,17 +22,19 @@ function preload() {
   bod = loadImage("imagesmp/body.png");
   kan = loadImage("imagesmp/kangoro.png");
   cor = loadImage("imagesmp/corocodile1.png");
+  cor1 = loadImage("imagesmp/corocodile.png");
   squak = loadSound('assetsounds/squawking.ogg');
   song1 = loadSound('assetsounds/bird.m4a');
+
 }
 
 function setup() {
   createCanvas(600, 400);
-  c = 80;
+  song1.play();
+  font = loadFont("imagesmp/fontnew.otf");
+  c = 30;
   mic = new p5.AudioIn(); // what does "new" mean?
   mic.start();
-  song1.play();
-  //f2 = loadFont("imagesmp/cute.otf") ;
 }
 
 function draw() {
@@ -41,6 +43,7 @@ function draw() {
 
   switch (mystate) {
     case 0:
+
       fill("brown");
       rect(300, 40, 100, 45);
       fill("white");
@@ -49,8 +52,11 @@ function draw() {
       break;
 
     case 1:
+
+
       mystate = 2;
-      break;
+
+
 
     case 2:
       vol = (mic.getLevel().toFixed(2)); // returned level is between 0 and 1
@@ -58,13 +64,15 @@ function draw() {
         // do something
         mystate = 3;
         squak.play();
+        //  song1.pause();
 
       }
       image(kan, 300, 250);
-      textSize(30);
-      fill("brown");
-      //textFont(f2) ;
-      text("please yell out to save the kangaroo's life", 200, 70);
+      textSize(37);
+          fill("brown");
+      textFont(font);
+      text("Call out to save her life", 200, 70);
+      textSize(35);
 
       break;
 
@@ -76,11 +84,12 @@ function draw() {
       if ((z >= 600) && (w <= 230)) {
         mystate = 4;
         squak.stop();
+
       }
 
       break;
     case 4:
-      textSize(30);
+      textSize(38);
       fill("brown");
       text("You saved her life.\n     Thank You!", 230, 80);
       z = 300
@@ -97,11 +106,20 @@ function draw() {
     x = -50;
 
   }
-  image(cor, c, 330, 160, 40);
-  c = c + .03;
-
-
+  if (c <= 130) {
+  image(cor1, c, 330, 190, 35);
+    c = c + .05;
+  }
+  else {
+  image(cor, c, 320, 220, 60);
+  //c = c + .03;
 }
+    //else if (c >= 130)
+      //image(cor1, c, 330, 190, 35);
+        //c = c + .03;
+    }
+
+
 
 function avatar() {
   switch (state) {
