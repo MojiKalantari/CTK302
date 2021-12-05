@@ -14,7 +14,7 @@ let botel, b;
 var bea;
 var robotc, robotl, robotr;
 var bags = [];
-var bag;
+var bag, robotfinal;
 var Botel;
 
 // var bunnyImage;
@@ -55,7 +55,7 @@ function setup() {
 
   // load any images you need
   //bunnyImage = loadImage("assets/bunny.jpg");
-    robotl = loadImage("asset2/robot1.png");
+    robotl = loadImage("asset2/robotfinal.png");
   imageMode(CENTER);
   rectMode(CENTER);
   noStroke();
@@ -64,6 +64,7 @@ function setup() {
 function draw() {
 
   background('#c6f5ff'); // light blue
+  imageMode(CENTER);
   image(bea, width / 2, height - 300, 600, 600);
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -173,7 +174,7 @@ window.addEventListener('devicemotion', function(e) {
 // car class!!
 function Car() {
   // attributes
-  this.pos = createVector(100, 100);
+  this.pos = createVector(300, 300);
   this.vel = createVector(random(-5, 5), random(-5, 5));
   this.r = random(255);
   this.g = random(255);
@@ -205,8 +206,8 @@ function Car() {
 }
 function Botel() {
   // attributes
-  this.pos = createVector(50, 50);
-  this.vel = createVector(random(-5, 5), random(-5, 5));
+  this.pos = createVector(300, 300);
+  this.vel = createVector(random(-2, 5), random(-2, 5));
   this.r = random(255);
   this.g = random(255);
   this.b = random(255);

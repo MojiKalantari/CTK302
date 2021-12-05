@@ -167,7 +167,7 @@ function resetTheGame() {
 // car class!!
 function Car() {
   // attributes
-  this.pos = createVector(100, 100);
+  this.pos = createVector(300, 300);
   this.vel = createVector(random(-5, 5), random(-5, 5));
   this.r = random(255);
   this.g = random(255);
@@ -203,7 +203,7 @@ function Car() {
 
 function Botel() {
   //attributes
-this.pos = createVector(100, 100);
+this.pos = createVector(300, 300);
  this.vel = createVector(random(-5, 5), random(-5, 5));
   this.r = random(255);
  this.g = random(255);
