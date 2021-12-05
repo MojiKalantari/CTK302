@@ -25,6 +25,7 @@ var frogPos;
 function setup() {
 
   createCanvas(600, 600);
+    imageMode(CENTER);
     bea = loadImage('asset2/world.png');
  bags[0] = loadImage("asset2/bagleft.png");
  bags[1] = loadImage("asset2/bagright.png");
