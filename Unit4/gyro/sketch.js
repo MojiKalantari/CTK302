@@ -43,11 +43,14 @@ function draw() {
 
   // Text commands that display debugging data
 //  textAlign(LEFT);
-  textSize(20);
+  //textSize(20);
   fill('blue');
 //  text("orientation data:", 25, 25);
   textFont(f1) ;
-  text("My name is Leo", 680, 125);
+    noStroke();
+  textSize(100);
+  textAlign(CENTER);
+  text("Leo", width / 2, height / 2);
   //textSize(15);
   // text("alpha: " + alpha, 25, 50);
   // text("beta: " + beta, 25, 70);
@@ -60,10 +63,10 @@ function draw() {
   // text("z = " + z.toFixed(4), 25, 190);
 
   // Text that makes CTK type in the background
-  fill('black');
+  //fill('black');
 //  noStroke();
-  textSize(100);
-  textAlign(CENTER);
+  //textSize(100);
+  //textAlign(CENTER);
   //text("LEO", width / 2, height-20 );
 
 }
